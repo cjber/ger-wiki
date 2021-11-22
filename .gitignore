@@ -1,0 +1,10 @@
+paper
+models
+data_processing/data
+pytest.ini
+
+.direnv
+.dockerignore
+.envrc
+
+__pycache__
