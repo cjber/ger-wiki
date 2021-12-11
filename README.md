@@ -17,7 +17,7 @@ Singleton](https://www.liverpool.ac.uk/geographic-data-science/our-people/)
 Calafiore](https://www.liverpool.ac.uk/geographic-data-science/our-people/)
 \[[`@alel_domi`](http://twitter.com/alel_domi)\]<sup>1</sup> [Jeremy
 Morley](https://ordnancesurvey.co.uk/)
-[\[`@jeremy_morley`\]](https://twitter.com/jeremy_morley)<sup>2</sup>
+\[[`@jeremy_morley`](https://twitter.com/jeremy_morley)]<sup>2</sup>
 
 <sup>1</sup> *Geographic Data Science Lab, University of Liverpool,
 Liverpool, United Kingdom*  
