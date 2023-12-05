@@ -40,9 +40,7 @@ class TestDoccanoFunctions:
 
         doccano_list = []
         with jsonlines.open(output_file) as reader:
-            for obj in reader:
-                doccano_list.append(obj)
-
+            doccano_list.extend(iter(reader))
         assert doccano_list[0] == {
             "text": "Blairgowrie and Rattray  is a twin burgh in Perth and Kinross, Scotland.",
             "labels": [

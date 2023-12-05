@@ -55,8 +55,7 @@ class RunBatchPredictions:
         for i in tqdm(range(chunks)):
             batches = self.text[i * batch_size : (i + 1) * batch_size]
             batches_out = self.predictor.predict_batch_json(batches)
-            for batch in batches_out:
-                self.predictions.append(batch)
+            self.predictions.extend(iter(batches_out))
 
     def write_json(self, json_file):
         if os.path.exists(json_file):
