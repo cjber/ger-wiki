@@ -16,15 +16,15 @@ class Optimiser:
         self.study_name = study_name
         self.timeout = timeout
 
-        self.MODEL_PATH = './models/optuna_models/' + self.study_name
+        self.MODEL_PATH = f'./models/optuna_models/{self.study_name}'
 
         self.study = optuna.create_study(
             study_name=self.study_name,
             sampler=optuna.samplers.TPESampler(seed=42),
             direction='maximize',
             pruner=HyperbandPruner(),
-            storage='sqlite:///optuna_database/' + self.study_name + '.db',
-            load_if_exists=True
+            storage=f'sqlite:///optuna_database/{self.study_name}.db',
+            load_if_exists=True,
         )
 
     def objective(self, trial: optuna.Trial) -> float:
@@ -36,8 +36,8 @@ class Optimiser:
         executor = optuna.integration.allennlp.AllenNLPExecutor(
             trial=trial,
             config_file=self.config_file,
-            serialization_dir=self.MODEL_PATH + f'/trial_{trial.number}',
-            metrics='best_validation_f1-measure-overall'
+            serialization_dir=f'{self.MODEL_PATH}/trial_{trial.number}',
+            metrics='best_validation_f1-measure-overall',
         )
         return executor.run()
 

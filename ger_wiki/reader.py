@@ -16,7 +16,7 @@ from overrides import overrides
 
 
 def _is_divider(line: str) -> bool:
-    return line.strip() == ""
+    return not line.strip()
 
 
 @DatasetReader.register("ger_reader")
@@ -34,7 +34,7 @@ class GerReader(DatasetReader):
                 if divider:
                     continue
                 fields = [line.strip().split() for line in lines]
-                fields = [line for line in zip(*fields)]
+                fields = list(zip(*fields))
                 tokens, ner_tags = fields
                 ner_tags = ["O" if tag[-3:] == "NOM" else tag for tag in ner_tags]
                 yield self.text_to_instance(tokens, ner_tags)

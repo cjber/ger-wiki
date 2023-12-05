@@ -53,7 +53,7 @@ with open(file_path, "r") as conll_file:
         if divider:
             continue
         fields = [line.strip().split() for line in lines]
-        fields = [line for line in zip(*fields)]
+        fields = list(zip(*fields))
         tokens, ner_tags = fields
         conll.append((tokens, ner_tags))
 

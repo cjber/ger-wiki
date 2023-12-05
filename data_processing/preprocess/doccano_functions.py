@@ -25,8 +25,8 @@ def split_text(
     subset = set(random.sample(text, sample))
     large_subset = text - subset
 
-    open(large_file, "w").write("".join([line for line in large_subset]))
-    open(sample_file, "w").write("".join([line for line in subset]))
+    open(large_file, "w").write("".join(list(large_subset)))
+    open(sample_file, "w").write("".join(list(subset)))
 
 
 def predictions_to_doccano(input_file: Path, output_file: Path):
